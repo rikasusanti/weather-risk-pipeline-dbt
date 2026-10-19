@@ -108,7 +108,7 @@ Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwal
 ### My Workspace
 <img width="501" height="910" alt="image" src="https://github.com/user-attachments/assets/a31c5f6c-3c5e-4bef-adbb-b767c61b678c" />
 
-### DB Source
+### DB Sumber
 <img width="492" height="268" alt="image" src="https://github.com/user-attachments/assets/9a2c9329-99c0-4f92-9cf6-c33aad2e6a08" />
 
 ### DB Target
