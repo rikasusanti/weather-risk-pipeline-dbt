@@ -55,6 +55,7 @@ weather-risk-pipeline-dbt/
 
 🚀 Panduan & Urutan Cara Menjalankan
 
+```text
 Ikuti tahapan berikut secara berurutan untuk menyiapkan lingkungan dan mengeksekusi pipeline:
 
 1. Pertama, membuat database target penyimpanan. Buat database baru yang memiliki izin tulis (write operations) sebagai tempat penyimpanan seluruh tabel dan view hasil transformasi:
@@ -96,7 +97,7 @@ marts/ (Fact Table): Menghasilkan tabel mart siap pakai (fct_global_weather_risk
 
 5. Kelima, jalankan file pada staging, diikuti dengan intermediate dan terakhir marts.
 
-
 (Opsional) Otomasi Orkestrasi via Snowflake Task DAG
 
 Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwalkan alur eksekusi otomatis secara berkala menggunakan Snowflake Tasks.
+```
