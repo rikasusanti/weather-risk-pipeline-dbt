@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: weather_source
+    description: "Pelmorex Weather Source Marketplace Dataset"
+    database: WEATHER_SOURCE_RAW
+    schema: PWS_BI_SAMPLE
+    tables:
+      - name: point_history_day
+      - name: point_forecast_day
+      - name: point_climatology_day
