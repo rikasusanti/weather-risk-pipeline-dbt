@@ -101,3 +101,6 @@ marts/ (Fact Table): Menghasilkan tabel mart siap pakai (fct_global_weather_risk
 
 Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwalkan alur eksekusi otomatis secara berkala menggunakan Snowflake Tasks.
 ```
+
+### DAG
+<img width="1817" height="738" alt="image" src="https://github.com/user-attachments/assets/e9254679-f449-43d8-b9c4-39fa958718e8" />
