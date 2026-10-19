@@ -104,3 +104,12 @@ Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwal
 
 ### DAG
 <img width="1817" height="738" alt="image" src="https://github.com/user-attachments/assets/e9254679-f449-43d8-b9c4-39fa958718e8" />
+
+### My Workspace
+<img width="501" height="910" alt="image" src="https://github.com/user-attachments/assets/a31c5f6c-3c5e-4bef-adbb-b767c61b678c" />
+
+### DB Source
+<img width="492" height="268" alt="image" src="https://github.com/user-attachments/assets/9a2c9329-99c0-4f92-9cf6-c33aad2e6a08" />
+
+### DB Target
+<img width="482" height="557" alt="image" src="https://github.com/user-attachments/assets/aafaaa35-9c66-4e8a-a973-fbbae1a8bac8" />
