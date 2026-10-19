@@ -22,14 +22,18 @@ POINT_FORECAST_DAY (Prakiraan cuaca harian ke depan)
 
 🏗️ Alur Data & DAG (Lineage)
 
+```text
 [Marketplace: point_history_day]     ---> [stg_weather_history]     \
                                                                      ---> [int_weather_anomaly_metrics] ---> [fct_global_weather_risk_summary]
 [Marketplace: point_climatology_day] ---> [stg_weather_climatology] /
 [Marketplace: point_forecast_day]    ---> [stg_weather_forecast]
+```
 
+-----------
 
 📂 Struktur Repositori
 
+```text
 weather-risk-pipeline-dbt/
 ├── models/
 │   ├── staging/
@@ -47,7 +51,7 @@ weather-risk-pipeline-dbt/
 ├── dbt_project.yml
 ├── .gitignore
 └── README.md
-
+```
 
 🚀 Panduan & Urutan Cara Menjalankan
 
