@@ -1,0 +1,15 @@
+SELECT 
+    NAME,
+    STATE,
+    ERROR_MESSAGE,
+    -- Kolom Asli (Timezone default session)
+    SCHEDULED_TIME,
+    SCHEDULED_BY_USER,
+    -- Kolom Baru yang Dikonversi ke UTC+7 (WIB), karena default zona waktu snowflake Amerika Serikat bagian barat
+    CONVERT_TIMEZONE('Asia/Jakarta', SCHEDULED_TIME) AS SCHEDULED_TIME_WIB,
+    CONVERT_TIMEZONE('Asia/Jakarta', QUERY_START_TIME) AS QUERY_START_TIME_WIB,
+    CONVERT_TIMEZONE('Asia/Jakarta', NEXT_SCHEDULED_TIME) AS NEXT_SCHEDULED_TIME_WIB
+FROM TABLE(INFORMATION_SCHEMA.TASK_HISTORY(
+    TASK_NAME => 'TASK_WEATHER_ROOT'
+))
+ORDER BY SCHEDULED_TIME DESC;
