@@ -96,10 +96,6 @@ intermediate/ (Table): Berfungsi untuk menggabungkan histori cuaca dengan acuan 
 marts/ (Fact Table): Menghasilkan tabel mart siap pakai (fct_global_weather_risk_summary) untuk kebutuhan visualisasi/dashboard dengan label status hijau Success pada visual lineage DAG.
 
 5. Kelima, jalankan file pada staging, diikuti dengan intermediate dan terakhir marts.
-
-(Opsional) Otomasi Orkestrasi via Snowflake Task DAG
-
-Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwalkan alur eksekusi otomatis secara berkala menggunakan Snowflake Tasks.
 ```
 
 ### DAG
@@ -113,3 +109,22 @@ Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwal
 
 ### DB Target
 <img width="482" height="557" alt="image" src="https://github.com/user-attachments/assets/aafaaa35-9c66-4e8a-a973-fbbae1a8bac8" />
+
+
+(Opsional) Otomasi Orkestrasi via Snowflake Task DAG
+
+Jalankan kueri pada berkas orchestration/snowflake_tasks_dag.sql untuk menjadwalkan alur eksekusi otomatis secara berkala menggunakan Snowflake Tasks.
+
+## ⚙️ Orkestrasi & Penjadwalan: Snowflake Tasks vs. dbt Cloud
+
+Berkas `orchestration/snowflake_tasks_dag.sql` disediakan untuk mengotomatisasi dan menjadwalkan alur pembaruan data secara berkala (*scheduled job*) menggunakan fitur native **Snowflake Task DAG**.
+
+### Batasan Arsitektur Native Snowflake Tasks
+Perintah `CREATE TASK` dieksekusi langsung pada mesin database Snowflake, yang berarti:
+* **Tidak Memiliki Kompiler dbt:** Mesin Snowflake tidak dapat menginterpretasikan struktur repositori file dbt maupun sintaks templating Jinja (seperti `{{ ref(...) }}`, `{{ source(...) }}`, atau blok `{{ config(...) }}`).
+* **Ketergantungan Objek Terkompilasi:** Snowflake Tasks hanya dapat mengeksekusi objek SQL murni (`VIEW` atau `TABLE`) yang sudah berhasil dibangun sebelumnya melalui proses kompilasi awal (`dbt run` / `dbt build`).
+
+### Alternatif Produksi: dbt Cloud Jobs
+Jika seluruh siklus orkestrasi ingin mempertahankan dependensi model dbt, manajemen struktur folder otomatis, serta kapabilitas CI/CD secara penuh, implementasi penjadwalan sebaiknya dialihkan ke **dbt Cloud Jobs**:
+* Mengatur *Job Scheduler* terpusat melalui antarmuka dbt Cloud (menggunakan *Trigger Schedule / Cron*).
+* Mengeksekusi perintah tunggal `dbt build` yang secara otomatis mengenali seluruh pohon silsilah data (*lineage DAG*) dari layer `staging`, `intermediate`, hingga `marts` tanpa perlu mendefinisikan ulang ketergantungan antartabel secara manual di level database.
