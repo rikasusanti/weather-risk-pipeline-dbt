@@ -110,6 +110,10 @@ marts/ (Fact Table): Menghasilkan tabel mart siap pakai (fct_global_weather_risk
 ### DB Target
 <img width="482" height="557" alt="image" src="https://github.com/user-attachments/assets/aafaaa35-9c66-4e8a-a973-fbbae1a8bac8" />
 
+<img width="1412" height="656" alt="image" src="https://github.com/user-attachments/assets/68e0e59c-a0c0-4d8d-934c-c9acae307acf" />
+
+
+
 
 ### (Opsional) Otomasi Orkestrasi via Snowflake Task DAG ###
 
